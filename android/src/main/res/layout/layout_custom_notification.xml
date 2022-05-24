@@ -6,15 +6,22 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="@dimen/base_margin_x4"
+            android:layout_height="@dimen/base_margin_x4"
+            android:scaleType="centerCrop"
+            android:visibility="invisible" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_toStartOf="@id/ivAvatar"
             android:orientation="vertical">
 
             <TextView
@@ -35,15 +42,7 @@
         </LinearLayout>
 
 
-        <ImageView
-            android:id="@+id/ivAvatar"
-            android:layout_width="@dimen/base_margin_x4"
-            android:layout_height="@dimen/base_margin_x4"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:scaleType="centerCrop"
-            android:visibility="invisible" />
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,72 +50,70 @@
         android:layout_marginTop="@dimen/base_margin_half"
         android:orientation="horizontal">
 
-
-        <LinearLayout
-            android:id="@+id/llDecline"
+        <Space
             android:layout_width="0dp"
-            android:layout_height="@dimen/base_margin_x3_5"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout
+            android:layout_width="@dimen/base_margin_x4"
+            android:layout_height="@dimen/base_margin_x4"
             android:layout_marginRight="@dimen/base_margin_half"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button_decline"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="horizontal">
+            app:ripple_amount="2"
+            app:ripple_radius="@dimen/base_margin_half"
+            app:ripple_scale="2">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/base_margin"
-                android:src="@drawable/ic_decline"
-                android:tint="@android:color/white"
-                app:tint="@android:color/white"
-                tools:ignore="UseAppTint" />
-
-            <TextView
-                android:id="@+id/tvDecline"
-                style="@style/Widget.Compat.NotificationActionText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:id="@+id/llDecline"
+                android:layout_width="@dimen/base_margin_x3_5"
+                android:layout_height="@dimen/base_margin_x3_5"
+                android:background="@drawable/bg_button_decline"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center"
-                android:text="@string/text_decline"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_decline"
+                    android:tint="@android:color/white"
+                    app:tint="@android:color/white"
+                    tools:ignore="UseAppTint" />
 
-        <LinearLayout
-            android:id="@+id/llAccept"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/base_margin_x3_5"
+            </LinearLayout>
+        </com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout>
+
+        <com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout
+            android:layout_width="@dimen/base_margin_x4"
+            android:layout_height="@dimen/base_margin_x4"
             android:layout_marginLeft="@dimen/base_margin_half"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button_accept"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_marginRight="@dimen/base_margin"
+            app:ripple_amount="2"
+            app:ripple_radius="@dimen/base_margin_half"
+            app:ripple_scale="2">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/base_margin"
-                android:src="@drawable/ic_accept"
-                android:tint="@android:color/white"
-                app:tint="@android:color/white"
-                tools:ignore="UseAppTint" />
-
-            <TextView
-                android:id="@+id/tvAccept"
-                style="@style/Widget.Compat.NotificationActionText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:id="@+id/llAccept"
+                android:layout_width="@dimen/base_margin_x3_5"
+                android:layout_height="@dimen/base_margin_x3_5"
+                android:background="@drawable/bg_button_accept"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center"
-                android:text="@string/text_accept"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_accept"
+                    android:tint="@android:color/white"
+                    app:tint="@android:color/white"
+                    tools:ignore="UseAppTint" />
+
+
+            </LinearLayout>
+        </com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout>
 
 
     </LinearLayout>
